@@ -2,24 +2,24 @@
 class Uniclip < Formula
   desc "Cross-platform shared clipboard"
   homepage "https://github.com/quackduck/uniclip"
-  version "1.1.0"
+  version "1.2.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/quackduck/uniclip/releases/download/v1.1.0/uniclip_1.1.0_Darwin_x86_64.tar.gz"
-    sha256 "6c0f64b15c2328dadfc0bffb04fb0438475a1b9e35152fe199ef7ea057759c14"
+    url "https://github.com/quackduck/uniclip/releases/download/v1.2.0/uniclip_1.2.0_Darwin_x86_64.tar.gz"
+    sha256 "7370424a1d97c9e97a6e1d57f95e89a4a424d88a40b8abcf29ac25fe71a658c0"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/uniclip/releases/download/v1.1.0/uniclip_1.1.0_Linux_x86_64.tar.gz"
-      sha256 "2b92a8c64c2dfe27a4d4aae3abca60f4b0aecf226662a33b1b00f8db445aaaee"
+      url "https://github.com/quackduck/uniclip/releases/download/v1.2.0/uniclip_1.2.0_Linux_x86_64.tar.gz"
+      sha256 "137095bc09ffa88efd31eaca3e852cbe9102e57c62ea2560a95cb80dc60ff6fd"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/quackduck/uniclip/releases/download/v1.1.0/uniclip_1.1.0_Linux_arm64.tar.gz"
-        sha256 "f1d27b2885bf58a49ce1e51a38e130777408c4c651b0da57d1a5254804d7cf02"
+        url "https://github.com/quackduck/uniclip/releases/download/v1.2.0/uniclip_1.2.0_Linux_arm64.tar.gz"
+        sha256 "be1eed6ce8ca95eebac75118498a33b21aaf5517594440799f63aca02188ff93"
       else
-        url "https://github.com/quackduck/uniclip/releases/download/v1.1.0/uniclip_1.1.0_Linux_armv6.tar.gz"
-        sha256 "eca8c5d11e73c2da4ded2b2b9a19e5eb954956e04aea2377d7c6853995ce53de"
+        url "https://github.com/quackduck/uniclip/releases/download/v1.2.0/uniclip_1.2.0_Linux_armv6.tar.gz"
+        sha256 "558400ac113eb9ae2fda317663fc4bfea0fc5a8312332526d886ad75b3688d6e"
       end
     end
   end
