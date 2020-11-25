@@ -2,26 +2,24 @@
 class Uniclip < Formula
   desc "Cross-platform shared clipboard"
   homepage "https://github.com/quackduck/uniclip"
-  version "1.2.1"
+  version "1.3.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/quackduck/uniclip/releases/download/v1.2.1/uniclip_1.2.1_Darwin_x86_64.tar.gz"
-    sha256 "d901113856452a6512bdd6c37f51a88c89bd81c28375146b3244094addd89b66"
-  elsif OS.linux?
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/uniclip/releases/download/v1.2.1/uniclip_1.2.1_Linux_x86_64.tar.gz"
-      sha256 "15b6376ce219d9f82ced7d97ce55ac66d9ad897a6e91735d5bf8317b9e0ffe1d"
-    end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/quackduck/uniclip/releases/download/v1.2.1/uniclip_1.2.1_Linux_arm64.tar.gz"
-        sha256 "c4d25beedc21bd2870b1386785c350ba90772ae4f2cab152f8a36c08f36f0ec6"
-      else
-        url "https://github.com/quackduck/uniclip/releases/download/v1.2.1/uniclip_1.2.1_Linux_armv6.tar.gz"
-        sha256 "dd07dc470c9cf375b32bafe93e25fdb822c77d3dee042fc02fd90bc720b9ee76"
-      end
-    end
+    url "https://github.com/quackduck/uniclip/releases/download/v1.3.0/uniclip_1.3.0_Darwin_x86_64.tar.gz"
+    sha256 "d04eea7952c5625753094ab144c401279d0bd5382db676d6aee05fb5ff2896af"
+  end
+  if OS.linux? && Hardware::CPU.intel?
+    url "https://github.com/quackduck/uniclip/releases/download/v1.3.0/uniclip_1.3.0_Linux_x86_64.tar.gz"
+    sha256 "c1b625c5f3318a3745e539eb7b4eb84d4b04d8a230ab9c53429ff5071fe98a20"
+  end
+  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+    url "https://github.com/quackduck/uniclip/releases/download/v1.3.0/uniclip_1.3.0_Linux_armv6.tar.gz"
+    sha256 "b6e5e4c044008798f32b83e222d98b1facbef44e7ece7ce67589ba8ad59adee9"
+  end
+  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    url "https://github.com/quackduck/uniclip/releases/download/v1.3.0/uniclip_1.3.0_Linux_arm64.tar.gz"
+    sha256 "9f1821a1ceeb982eac50989ef40381ed52fa4e48170829af4c0c9b50b8fb7f28"
   end
 
   def install
