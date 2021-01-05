@@ -2,24 +2,24 @@
 class Tii < Formula
   desc "Command not found? Install it right there!"
   homepage "https://github.com/quackduck/tii"
-  version "1.0.3"
+  version "1.0.4"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/quackduck/tii/releases/download/v1.0.3/tii_1.0.3_Darwin_x86_64.tar.gz"
-    sha256 "150366b69ea0a1b1ac29c575affff88185ac4eee82cdc400605672bcaded9952"
+    url "https://github.com/quackduck/tii/releases/download/v1.0.4/tii_1.0.4_Darwin_x86_64.tar.gz"
+    sha256 "13b7dee02122ab4d3c6c854fe1fa7db39f3711cc94cd992b969f44555652df1d"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/tii/releases/download/v1.0.3/tii_1.0.3_Linux_x86_64.tar.gz"
-    sha256 "389cf7d960f2b7fb0bffbedaeb5a54bce3321429bcb5061b78c0341e204cdf7e"
+    url "https://github.com/quackduck/tii/releases/download/v1.0.4/tii_1.0.4_Linux_x86_64.tar.gz"
+    sha256 "3eedb5e52140e753b25261eff27e86500e42002bf1ca317327f3c5b0b538a898"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/tii/releases/download/v1.0.3/tii_1.0.3_Linux_armv6.tar.gz"
-    sha256 "ac60d6736db6fe252b5aec6af04b3830795e7782dd5df075419bfbf094e6af72"
+    url "https://github.com/quackduck/tii/releases/download/v1.0.4/tii_1.0.4_Linux_armv6.tar.gz"
+    sha256 "8ee10e8d4d64ca414254d8389c8c96b0a625dd9e251b3da5d33630410d7b77bf"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/tii/releases/download/v1.0.3/tii_1.0.3_Linux_arm64.tar.gz"
-    sha256 "25932302c04759060c4aca5339cc22b0dce29a0cdd0710beed370a093c445a4d"
+    url "https://github.com/quackduck/tii/releases/download/v1.0.4/tii_1.0.4_Linux_arm64.tar.gz"
+    sha256 "5082859b206f441efdaa337c6bda4c783bea840566f485f207eab9426d0f96c2"
   end
 
   def install
