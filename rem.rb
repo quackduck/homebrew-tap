@@ -5,24 +5,24 @@
 class Rem < Formula
   desc "Rem is a CLI Trash which makes it ridiculously easy to recover them."
   homepage "https://github.com/quackduck/rem"
-  version "1.0.1"
+  version "1.0.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/quackduck/rem/releases/download/v1.0.1/rem_1.0.1_Darwin_x86_64.tar.gz"
-    sha256 "370abcbdf0ac53adc387e70f3c0b27c647fec68da86774c0410fa231da7b3a3a"
+    url "https://github.com/quackduck/rem/releases/download/v1.0.2/rem_1.0.2_Darwin_x86_64.tar.gz"
+    sha256 "904b4ea4851bcd29fabc31ae6274e729202ba3ea51b0b3df76e83e2d8816a438"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/rem/releases/download/v1.0.1/rem_1.0.1_Linux_x86_64.tar.gz"
-    sha256 "6f8d1c7f075f677322ad22d5529298036a51e206793f83ed6dccd5e86cc0f42c"
+    url "https://github.com/quackduck/rem/releases/download/v1.0.2/rem_1.0.2_Linux_x86_64.tar.gz"
+    sha256 "5e6c4231f90a8ab726ff4c2d6c273bd46280a5f6cc9c57e8ca043bce43bc1104"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/rem/releases/download/v1.0.1/rem_1.0.1_Linux_armv6.tar.gz"
-    sha256 "756c29cdaa37c4304cd1eff09372eaf9fbe35fe30fe3fcf442d5365117334fa2"
+    url "https://github.com/quackduck/rem/releases/download/v1.0.2/rem_1.0.2_Linux_armv6.tar.gz"
+    sha256 "6c74615bc0e09a042104f87aecb7e1ac9983df47fd8b6024d114867637b3ff51"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/rem/releases/download/v1.0.1/rem_1.0.1_Linux_arm64.tar.gz"
-    sha256 "260b816b2196f775b66c5bda3b4a78001ea12b5ef47f8e2fa59f99c7043f10c8"
+    url "https://github.com/quackduck/rem/releases/download/v1.0.2/rem_1.0.2_Linux_arm64.tar.gz"
+    sha256 "b0c96ae3a6b3a631167654afad4edd5204d0175bca371425f17e79dda8997f72"
   end
 
   def install
