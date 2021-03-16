@@ -5,16 +5,16 @@
 class Cool < Formula
   desc "Never let kernel_task eat up CPU again."
   homepage "https://github.com/quackduck/cool"
-  version "0.1.2"
+  version "0.1.3"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/cool/releases/download/v0.1.2/cool_0.1.2_Darwin_x86_64.tar.gz"
-    sha256 "da537d80c0ce1f7aa21be6e8b04564451de2ae809e5101067486e7b6e037ea28"
+    url "https://github.com/quackduck/cool/releases/download/v0.1.3/cool_0.1.3_Darwin_x86_64.tar.gz"
+    sha256 "62555d5cfa90f34a4f35097ebb1c2cd24328c131763a2bcda225161d6626e4cf"
   end
 
   def install
-    bin.install "tii"
+    bin.install "cool"
     bin.install "smc"
   end
 end
