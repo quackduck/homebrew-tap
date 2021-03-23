@@ -5,28 +5,27 @@
 class Secret < Formula
   desc "Encrypt anything with a password"
   homepage "https://github.com/quackduck/secret"
-  version "1.0.0"
+  version "1.0.1"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/secret/releases/download/v1.0.0/secret_1.0.0_Darwin_x86_64.tar.gz"
-    sha256 "c9625b032d6d5706c01c5576643fb98beca8cfad3342d45a89d02798315e3ddc"
+    url "https://github.com/quackduck/secret/releases/download/v1.0.1/secret_1.0.1_Darwin_x86_64.tar.gz"
+    sha256 "ba3c5783f1a4679ed348da9aae57465438e729a09ff43e46fa2b511c4b8d5be9"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/secret/releases/download/v1.0.0/secret_1.0.0_Linux_x86_64.tar.gz"
-    sha256 "b3ce06c44827b4bfb5071a1dd45e8f949bf3c441b7f2affc76b8ddc53e32bc5d"
+    url "https://github.com/quackduck/secret/releases/download/v1.0.1/secret_1.0.1_Linux_x86_64.tar.gz"
+    sha256 "5a432a9c0c29d79141308f99cea94dd6c3d822721d7dcc55979d51bc67fbf995"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/secret/releases/download/v1.0.0/secret_1.0.0_Linux_armv6.tar.gz"
-    sha256 "b36952b3034e0df05d80ffad1eeebe8c9e18e77c69a9a1ffbbf9f6f38a923b2a"
+    url "https://github.com/quackduck/secret/releases/download/v1.0.1/secret_1.0.1_Linux_armv6.tar.gz"
+    sha256 "d57005f078a5f7630484b3e720d054e00655e6a2ec3d387c4d243dcebd5f2350"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/secret/releases/download/v1.0.0/secret_1.0.0_Linux_arm64.tar.gz"
-    sha256 "4d8a23b72cab9e4dfaba6e3cf450411acc59f97a4a8db39fffab5340369add25"
+    url "https://github.com/quackduck/secret/releases/download/v1.0.1/secret_1.0.1_Linux_arm64.tar.gz"
+    sha256 "8e39ae0a6f4b031ec5013a9a89bc13b72c97c0c904f3ae9fb78e7724edaa023b"
   end
 
   def install
-    bin.install "cool"
-    bin.install "smc"
+    bin.install "secret"
   end
 end
