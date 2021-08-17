@@ -5,28 +5,28 @@
 class Aces < Formula
   desc "Encode in a character set of your choice"
   homepage "https://github.com/quackduck/aces"
-  version "0.1.0"
+  version "1.0.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/aces/releases/download/v0.1.0/aces_0.1.0_Darwin_x86_64.tar.gz"
-      sha256 "2d8c88756cc30a59ef9b00bdb1e49d3756f971b9233930e7548b388a1721f35d"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Darwin_x86_64.tar.gz"
+      sha256 "ffc3f18e4844760a3423424da408212b33fa76b351749b3967e4913368c99291"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/aces/releases/download/v0.1.0/aces_0.1.0_Linux_x86_64.tar.gz"
-      sha256 "1cac0c7106291e8153af1ccf7afdb29b88b6ff3271757067d83a4f93c8a33a0e"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Linux_x86_64.tar.gz"
+      sha256 "949bd27b5c66074de66d0346cfd66caeae224e9fece21bfaf404c2f7eea5b870"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/aces/releases/download/v0.1.0/aces_0.1.0_Linux_armv6.tar.gz"
-      sha256 "a35fbfeaa71e19f0afe08d1f23b94390f13a2e309d136c43daa8c4ca33dacfe4"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Linux_armv6.tar.gz"
+      sha256 "9ba085760ae3ba02c85718e7c321e9c22bca59eae953b8ec11542dbabc8c1200"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/aces/releases/download/v0.1.0/aces_0.1.0_Linux_arm64.tar.gz"
-      sha256 "07a5863b14e95c2ba829d5ec7be066c73fa27934860cac89d1f70e0045b49440"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Linux_arm64.tar.gz"
+      sha256 "0183df9c6632a308177c95b6c3d5b2be52125d9773f97edc0d3cf0273fe0b202"
     end
   end
 
