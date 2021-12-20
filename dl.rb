@@ -5,27 +5,51 @@
 class Dl < Formula
   desc "Print, download or copy website content"
   homepage "https://github.com/quackduck/dl"
-  version "1.0.0"
-  bottle :unneeded
+  version "1.0.1"
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/dl/releases/download/v1.0.0/dl_1.0.0_Darwin_x86_64.tar.gz"
-    sha256 "d627442f108e34ece92876f56ff0f88afe72fcf6a0d30438957020c190184caf"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/dl/releases/download/v1.0.0/dl_1.0.0_Linux_x86_64.tar.gz"
-    sha256 "68ee00391487e6fcc885ba6d13edcf5ab866a67e85acc7ab8d6fff71664d19b5"
-  end
-  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/dl/releases/download/v1.0.0/dl_1.0.0_Linux_armv6.tar.gz"
-    sha256 "f799ddf30120629bfdfa079ef793c09ccb06412b3182d96c5f09f204362ebd18"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/dl/releases/download/v1.0.0/dl_1.0.0_Linux_arm64.tar.gz"
-    sha256 "43574576c5a8d6dbe4e69ad2da26cd604904340846d97989e94b1748c95ac8ee"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/dl/releases/download/v1.0.1/dl_1.0.1_Darwin_arm64.tar.gz"
+      sha256 "a257d62418123c0dbb4a0a8606abeb1666fd39c1653af932b27f538cab2b3039"
+
+      def install
+        bin.install "dl"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/dl/releases/download/v1.0.1/dl_1.0.1_Darwin_x86_64.tar.gz"
+      sha256 "7f8942d5e7df4009da16c8be0c91b98aa8353b0f017e1ee4b4b097a69b0c800c"
+
+      def install
+        bin.install "dl"
+      end
+    end
   end
 
-  def install
-    bin.install "dl"
+  on_linux do
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/dl/releases/download/v1.0.1/dl_1.0.1_Linux_armv6.tar.gz"
+      sha256 "32f79196a3cd430367d94c32b30621f9ef2433fe6180af38b8e4fef9bc398faf"
+
+      def install
+        bin.install "dl"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/dl/releases/download/v1.0.1/dl_1.0.1_Linux_arm64.tar.gz"
+      sha256 "01a8061eb1b0faa038119c762c233adf45a4909e61c0ca8d0752de0a8a7d0dc6"
+
+      def install
+        bin.install "dl"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/dl/releases/download/v1.0.1/dl_1.0.1_Linux_x86_64.tar.gz"
+      sha256 "da965a68424bdfe14c9d2f7a4f7c31f9b65434f0071b6333a9435711c999d63c"
+
+      def install
+        bin.install "dl"
+      end
+    end
   end
 end
