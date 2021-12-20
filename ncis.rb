@@ -5,27 +5,51 @@
 class Ncis < Formula
   desc "Brute force ssh easily"
   homepage "https://github.com/quackduck/ncis"
-  version "1.0.1"
-  bottle :unneeded
+  version "1.0.2"
 
-  if OS.mac?
-    url "https://github.com/quackduck/ncis/releases/download/v1.0.1/ncis_1.0.1_Darwin_x86_64.tar.gz"
-    sha256 "c7baf1e0fe5205b9a489c96fc5a05f136ddbc73e0c2ffc093a88a74459ca5cd4"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/quackduck/ncis/releases/download/v1.0.1/ncis_1.0.1_Linux_x86_64.tar.gz"
-    sha256 "c7ccac4f0efc151f9a73ee78d1d53e1747678cd85d9874245bd88511690e2336"
-  end
-  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/ncis/releases/download/v1.0.1/ncis_1.0.1_Linux_armv6.tar.gz"
-    sha256 "88905d37d5558b7d7d182e2adbf9e9cd54fb0c42af4f127a699b5054d335489a"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/quackduck/ncis/releases/download/v1.0.1/ncis_1.0.1_Linux_arm64.tar.gz"
-    sha256 "46b467c86bd5d5751cc0000af5eee99b4b4644c93fb298cfd977a135b28dd54c"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/ncis/releases/download/v1.0.2/ncis_1.0.2_Darwin_arm64.tar.gz"
+      sha256 "5dda13c96a2839eb2567a1aaa7d9964438d937e4451f520cf45ad7a732b5cf51"
+
+      def install
+        bin.install "ncis"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/ncis/releases/download/v1.0.2/ncis_1.0.2_Darwin_x86_64.tar.gz"
+      sha256 "f8dbb8f135c96bd4018601e4b5383a5aea0b2e8d008fa0e1bc0a06fc00419ba9"
+
+      def install
+        bin.install "ncis"
+      end
+    end
   end
 
-  def install
-    bin.install "ncis"
+  on_linux do
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/ncis/releases/download/v1.0.2/ncis_1.0.2_Linux_armv6.tar.gz"
+      sha256 "59e19e178c2acea827b301e27a05d293ab2e8a18f32a3b1464813cafc2519f59"
+
+      def install
+        bin.install "ncis"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/ncis/releases/download/v1.0.2/ncis_1.0.2_Linux_x86_64.tar.gz"
+      sha256 "a31eeb860f1e265fec01d5a6796ec5e31d793d306df7aa5cf4c5e8b82ad355f2"
+
+      def install
+        bin.install "ncis"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/ncis/releases/download/v1.0.2/ncis_1.0.2_Linux_arm64.tar.gz"
+      sha256 "d4e58ddf18349ac6b0eea4a676decd2c51a2b848508413a7c064e5fb13d60dec"
+
+      def install
+        bin.install "ncis"
+      end
+    end
   end
 end
