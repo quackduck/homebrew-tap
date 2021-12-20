@@ -5,32 +5,51 @@
 class Aces < Formula
   desc "Encode in a character set of your choice"
   homepage "https://github.com/quackduck/aces"
-  version "1.0.0"
-  bottle :unneeded
+  version "1.0.1"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/aces/releases/download/v1.0.1/aces_1.0.1_Darwin_arm64.tar.gz"
+      sha256 "209335ce7a44e886c7d2717e8f1c8f84846221666f60caa71ffbfe0f5c66b393"
+
+      def install
+        bin.install "aces"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Darwin_x86_64.tar.gz"
-      sha256 "ffc3f18e4844760a3423424da408212b33fa76b351749b3967e4913368c99291"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.1/aces_1.0.1_Darwin_x86_64.tar.gz"
+      sha256 "3bbcb4955da6fd4cdbd54f8a5e3222d136aa23943380ff9a47c7386e69f4ab66"
+
+      def install
+        bin.install "aces"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Linux_x86_64.tar.gz"
-      sha256 "949bd27b5c66074de66d0346cfd66caeae224e9fece21bfaf404c2f7eea5b870"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.1/aces_1.0.1_Linux_x86_64.tar.gz"
+      sha256 "2556eefe69998b98ec032675d51ce8347f48ed63072c5834da254d2c650af096"
+
+      def install
+        bin.install "aces"
+      end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Linux_armv6.tar.gz"
-      sha256 "9ba085760ae3ba02c85718e7c321e9c22bca59eae953b8ec11542dbabc8c1200"
+      url "https://github.com/quackduck/aces/releases/download/v1.0.1/aces_1.0.1_Linux_armv6.tar.gz"
+      sha256 "82bf44c6eeaf56812c1ef1947c8c7ebd9b985495c2d78244174e7af2eceaa110"
+
+      def install
+        bin.install "aces"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/aces/releases/download/v1.0.0/aces_1.0.0_Linux_arm64.tar.gz"
-      sha256 "0183df9c6632a308177c95b6c3d5b2be52125d9773f97edc0d3cf0273fe0b202"
-    end
-  end
+      url "https://github.com/quackduck/aces/releases/download/v1.0.1/aces_1.0.1_Linux_arm64.tar.gz"
+      sha256 "abc442845db36eff8f90cf644b84dd192d43063b883550f4561bea0059b3aa2e"
 
-  def install
-    bin.install "aces"
+      def install
+        bin.install "aces"
+      end
+    end
   end
 end
