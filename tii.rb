@@ -5,26 +5,26 @@
 class Tii < Formula
   desc "Command not found? Install it right there!"
   homepage "https://github.com/quackduck/tii"
-  version "1.0.7"
+  version "1.0.8"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Darwin_x86_64.tar.gz"
-      sha256 "caff616d322749ddba940cf2e03991bc92808aedece88850cfba9b8502793384"
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.8/tii_1.0.8_Darwin_arm64.tar.gz"
+      sha256 "a1746b9268047cf1c8da79dbf80e3495569b52f3596f5f1d2dcc5217221f1198"
 
       def install
         bin.install "tii"
-        fish_function.install "shell/tii_on_command_not_found.fish"
+        fish_function.install "shell/__fish_command_not_found_handler"
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Darwin_arm64.tar.gz"
-      sha256 "87c766b0012894562f884eab177e608cc629d7521fbb14a8d94466c4836105da"
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.8/tii_1.0.8_Darwin_x86_64.tar.gz"
+      sha256 "5095871a2a206c41cc663bccc1320cc023ab02dc9a03b205e3c3495c05e4a4ec"
 
       def install
         bin.install "tii"
-        fish_function.install "shell/tii_on_command_not_found.fish"
+        fish_function.install "shell/__fish_command_not_found_handler"
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
@@ -32,32 +32,32 @@ class Tii < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Linux_armv6.tar.gz"
-      sha256 "35c80bfccd8d70c09b752e3947c1a0f30e5fe3236f30f84dee3f88170603fd12"
+      url "https://github.com/quackduck/tii/releases/download/v1.0.8/tii_1.0.8_Linux_armv6.tar.gz"
+      sha256 "428558e0fc77100b396b3e9428c94d35fa9895131046d87a736ad86dc0e8a9a3"
 
       def install
         bin.install "tii"
-        fish_function.install "shell/tii_on_command_not_found.fish"
-        (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Linux_arm64.tar.gz"
-      sha256 "f7886ea2b98b05752ce27c4c444d5f204e45238f5b7d2a53bd4d658d54bc20b7"
-
-      def install
-        bin.install "tii"
-        fish_function.install "shell/tii_on_command_not_found.fish"
+        fish_function.install "shell/__fish_command_not_found_handler"
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Linux_x86_64.tar.gz"
-      sha256 "aaeb056c14297d95c17df3c078a77c654e44e8f6d9515fef6d1627ece19aed39"
+      url "https://github.com/quackduck/tii/releases/download/v1.0.8/tii_1.0.8_Linux_x86_64.tar.gz"
+      sha256 "2fed418cfd733fe15d42be3e9a64aca57429fbd0417b4319bfde83fb8b8f4a67"
 
       def install
         bin.install "tii"
-        fish_function.install "shell/tii_on_command_not_found.fish"
+        fish_function.install "shell/__fish_command_not_found_handler"
+        (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.8/tii_1.0.8_Linux_arm64.tar.gz"
+      sha256 "843d69afde5e57a3856a77ef87c7520aa8f12ca85e10897b80cd7f6ee85085db"
+
+      def install
+        bin.install "tii"
+        fish_function.install "shell/__fish_command_not_found_handler"
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
