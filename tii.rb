@@ -5,12 +5,12 @@
 class Tii < Formula
   desc "Command not found? Install it right there!"
   homepage "https://github.com/quackduck/tii"
-  version "1.0.6"
+  version "1.0.7"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.6/tii_1.0.6_Darwin_arm64.tar.gz"
-      sha256 "879d77eed55ae9585811b7208d1e3a909b325eab70ffef5c3828f7f8ca6c2245"
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Darwin_x86_64.tar.gz"
+      sha256 "caff616d322749ddba940cf2e03991bc92808aedece88850cfba9b8502793384"
 
       def install
         bin.install "tii"
@@ -18,9 +18,9 @@ class Tii < Formula
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.6/tii_1.0.6_Darwin_x86_64.tar.gz"
-      sha256 "51b63275f3d87d522ad3e4f07f5c2f33e753394a176a1a1dcbed0a7a4c7ac9fd"
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Darwin_arm64.tar.gz"
+      sha256 "87c766b0012894562f884eab177e608cc629d7521fbb14a8d94466c4836105da"
 
       def install
         bin.install "tii"
@@ -31,9 +31,9 @@ class Tii < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.6/tii_1.0.6_Linux_arm64.tar.gz"
-      sha256 "4e3d874f6faa8a4d0821466ec7247d0de4d5fdbbdc293659248db19f59260c6b"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Linux_armv6.tar.gz"
+      sha256 "35c80bfccd8d70c09b752e3947c1a0f30e5fe3236f30f84dee3f88170603fd12"
 
       def install
         bin.install "tii"
@@ -41,9 +41,9 @@ class Tii < Formula
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.6/tii_1.0.6_Linux_armv6.tar.gz"
-      sha256 "1ed85ef747e3ca06e9fdc690243b61dacebf44bd239c179e6304519ec17d1096"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Linux_arm64.tar.gz"
+      sha256 "f7886ea2b98b05752ce27c4c444d5f204e45238f5b7d2a53bd4d658d54bc20b7"
 
       def install
         bin.install "tii"
@@ -52,8 +52,8 @@ class Tii < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/tii/releases/download/v1.0.6/tii_1.0.6_Linux_x86_64.tar.gz"
-      sha256 "ab52f8e92d6c992652ccd397ca11386fbe8e611e8b92c3c3aeea87e62b2dc505"
+      url "https://github.com/quackduck/tii/releases/download/v1.0.7/tii_1.0.7_Linux_x86_64.tar.gz"
+      sha256 "aaeb056c14297d95c17df3c078a77c654e44e8f6d9515fef6d1627ece19aed39"
 
       def install
         bin.install "tii"
