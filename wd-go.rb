@@ -5,64 +5,64 @@
 class WdGo < Formula
   desc "Warp across the filesystem instantly"
   homepage "https://github.com/quackduck/warpdrive-go"
-  version "1.0.2"
+  version "1.0.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Darwin_arm64.tar.gz"
-      sha256 "ede79584e33a79adc8b0305f2b46f9dbc683e4ccf1923d6ba657dde31c1563bb"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Darwin_arm64.tar.gz"
+      sha256 "7b239e96e94daa3f074cc2381040752f32773e68eb411bac310d398e5103627a"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
-        fish_function.install "fish-support/wd-go_on_prompt.fish"
+        (share/"fish/vendor_conf.d").install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Darwin_x86_64.tar.gz"
-      sha256 "30e81f83b47af69fadbe44744c24cbd1f14e13ae096b750b8a72d1b5893be10e"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Darwin_x86_64.tar.gz"
+      sha256 "bc39f3eec38e14589920f93b2e5628b73f7ba6a7ad3315c3686995215baa684f"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
-        fish_function.install "fish-support/wd-go_on_prompt.fish"
+        (share/"fish/vendor_conf.d").install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Linux_armv6.tar.gz"
-      sha256 "ca2a9e38bb951542c42413cd100a09afadaf56f99fd2833af324ba12304419f6"
-
-      def install
-        bin.install "wd-go"
-        fish_function.install "fish-support/wd.fish"
-        fish_function.install "fish-support/wd-go_on_prompt.fish"
-        (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
-      end
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Linux_arm64.tar.gz"
-      sha256 "9b18b8f8a228856fbbc38d489ff77485a11fb4820426a19b31f26144d54a02f0"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Linux_arm64.tar.gz"
+      sha256 "bd5ab2b55ebff993f17071e19f3e058e55dbf185bbf24d46e2944839d169dd28"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
-        fish_function.install "fish-support/wd-go_on_prompt.fish"
+        (share/"fish/vendor_conf.d").install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Linux_x86_64.tar.gz"
-      sha256 "3af153d362b99e25dcb6928f8c8ba5d7cc0b3a300a15cd2c22f7c79df967098e"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Linux_x86_64.tar.gz"
+      sha256 "26bc8b270866be21e7d82d6e39f6c1b4b62ce73c636ba3cb4f67d1101af9db2e"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
-        fish_function.install "fish-support/wd-go_on_prompt.fish"
+        (share/"fish/vendor_conf.d").install "fish-support/wd-go_on_prompt.fish"
+        (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Linux_armv6.tar.gz"
+      sha256 "0015e96bc10f7e815e20cd56763c288b635b2238f1fb68111823f2b6aa816acb"
+
+      def install
+        bin.install "wd-go"
+        fish_function.install "fish-support/wd.fish"
+        (share/"fish/vendor_conf.d").install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
