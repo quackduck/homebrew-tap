@@ -5,59 +5,64 @@
 class WdGo < Formula
   desc "Warp across the filesystem instantly"
   homepage "https://github.com/quackduck/warpdrive-go"
-  version "1.0.1"
+  version "1.0.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.1/wd-go_1.0.1_Darwin_arm64.tar.gz"
-      sha256 "f000112acd8d3747d422f5e4a1ab1cf058cb76ccd6311d75ad11442a60d75460"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Darwin_arm64.tar.gz"
+      sha256 "ede79584e33a79adc8b0305f2b46f9dbc683e4ccf1923d6ba657dde31c1563bb"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
+        fish_function.install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.1/wd-go_1.0.1_Darwin_x86_64.tar.gz"
-      sha256 "e0239c6ff26883edadc96be603b00770df78afdbecfe9c07b39b499eeae3e027"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Darwin_x86_64.tar.gz"
+      sha256 "30e81f83b47af69fadbe44744c24cbd1f14e13ae096b750b8a72d1b5893be10e"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
+        fish_function.install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.1/wd-go_1.0.1_Linux_x86_64.tar.gz"
-      sha256 "a58f86eecbebe29aec8e6da499241fff51950fcabfc4e09a12792c31ae32333b"
-
-      def install
-        bin.install "wd-go"
-        fish_function.install "fish-support/wd.fish"
-        (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
-      end
-    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.1/wd-go_1.0.1_Linux_armv6.tar.gz"
-      sha256 "224996b1db4ee0b21bccea25a2482ee04ff3d6814690b9792844f3d23ef38df9"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Linux_armv6.tar.gz"
+      sha256 "ca2a9e38bb951542c42413cd100a09afadaf56f99fd2833af324ba12304419f6"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
+        fish_function.install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.1/wd-go_1.0.1_Linux_arm64.tar.gz"
-      sha256 "52a8aa572a58caf06a0229efdf6156c363d16fc7d50e9adef22021b0176ba3c0"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Linux_arm64.tar.gz"
+      sha256 "9b18b8f8a228856fbbc38d489ff77485a11fb4820426a19b31f26144d54a02f0"
 
       def install
         bin.install "wd-go"
         fish_function.install "fish-support/wd.fish"
+        fish_function.install "fish-support/wd-go_on_prompt.fish"
+        (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.2/wd-go_1.0.2_Linux_x86_64.tar.gz"
+      sha256 "3af153d362b99e25dcb6928f8c8ba5d7cc0b3a300a15cd2c22f7c79df967098e"
+
+      def install
+        bin.install "wd-go"
+        fish_function.install "fish-support/wd.fish"
+        fish_function.install "fish-support/wd-go_on_prompt.fish"
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
