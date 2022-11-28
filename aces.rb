@@ -5,20 +5,20 @@
 class Aces < Formula
   desc "Encode in a character set of your choice"
   homepage "https://github.com/quackduck/aces"
-  version "1.1.0"
+  version "1.2.1"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/aces/releases/download/v1.1.0/aces_1.1.0_Darwin_x86_64.tar.gz"
-      sha256 "b750d6c8ad4bac2fd082f590ae5e50dc31c2cda769e2d8c863920a808d0f7ee6"
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/aces/releases/download/v1.2.1/aces_1.2.1_Darwin_arm64.tar.gz"
+      sha256 "811b107e0f9e9b7323855f8fb707738dfb414a65642e94b7731dd883fee0714d"
 
       def install
         bin.install "aces"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/quackduck/aces/releases/download/v1.1.0/aces_1.1.0_Darwin_arm64.tar.gz"
-      sha256 "42a8b6c58f6840a61f36bfd263e67b9aedbd594a947c430044623fd657d3edec"
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/aces/releases/download/v1.2.1/aces_1.2.1_Darwin_x86_64.tar.gz"
+      sha256 "b5242270156358a2d349e8422412f95e51d58567cdb75f5c3f429fd000688d0c"
 
       def install
         bin.install "aces"
@@ -27,25 +27,25 @@ class Aces < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/aces/releases/download/v1.1.0/aces_1.1.0_Linux_armv6.tar.gz"
-      sha256 "852ee277dee92d88e4fb9562dc31734c2671ebd68ad3f927338e4e0158e89915"
-
-      def install
-        bin.install "aces"
-      end
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/aces/releases/download/v1.1.0/aces_1.1.0_Linux_arm64.tar.gz"
-      sha256 "fc6c50e69196e85bced691e979e46fece6e574841953e1d73cf8ed96bf3d65d9"
+      url "https://github.com/quackduck/aces/releases/download/v1.2.1/aces_1.2.1_Linux_arm64.tar.gz"
+      sha256 "df58b2b0b0d3003c2a54f198be6b13a48dfb0d213ecd6456c001f06fcae94085"
 
       def install
         bin.install "aces"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/aces/releases/download/v1.1.0/aces_1.1.0_Linux_x86_64.tar.gz"
-      sha256 "ca79f7846d528a593e0ac82eac3b58d828a0f8e4f725eec26e0672294278cadd"
+      url "https://github.com/quackduck/aces/releases/download/v1.2.1/aces_1.2.1_Linux_x86_64.tar.gz"
+      sha256 "15f01c2cece7ae9557d6eaa3bfedf115307e49fe552d4ded95f1075c1d91c0ed"
+
+      def install
+        bin.install "aces"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/aces/releases/download/v1.2.1/aces_1.2.1_Linux_armv6.tar.gz"
+      sha256 "0afc4426ac7446c6a079c8d93c167e4a2b8d5a334dea293ef2392962642552f3"
 
       def install
         bin.install "aces"
