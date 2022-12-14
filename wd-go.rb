@@ -5,12 +5,12 @@
 class WdGo < Formula
   desc "Warp across the filesystem instantly"
   homepage "https://github.com/quackduck/warpdrive-go"
-  version "1.0.3"
+  version "1.0.4"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Darwin_arm64.tar.gz"
-      sha256 "7b239e96e94daa3f074cc2381040752f32773e68eb411bac310d398e5103627a"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Darwin_arm64.tar.gz"
+      sha256 "b8e2d28418733f3e8029fe09d14b7cd28ac93520993fda8da77d77f7ab299835"
 
       def install
         bin.install "wd-go"
@@ -20,8 +20,8 @@ class WdGo < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Darwin_x86_64.tar.gz"
-      sha256 "bc39f3eec38e14589920f93b2e5628b73f7ba6a7ad3315c3686995215baa684f"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Darwin_x86_64.tar.gz"
+      sha256 "76c44165065a2408330171d9efc860a631f1a40ad165a10f262be47edde4a6fb"
 
       def install
         bin.install "wd-go"
@@ -33,9 +33,9 @@ class WdGo < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Linux_arm64.tar.gz"
-      sha256 "bd5ab2b55ebff993f17071e19f3e058e55dbf185bbf24d46e2944839d169dd28"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Linux_armv6.tar.gz"
+      sha256 "e04c276f501f0e9620f0d3796516eef26fba1f79ea3c1c1020210e23efa94ec9"
 
       def install
         bin.install "wd-go"
@@ -45,8 +45,8 @@ class WdGo < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Linux_x86_64.tar.gz"
-      sha256 "26bc8b270866be21e7d82d6e39f6c1b4b62ce73c636ba3cb4f67d1101af9db2e"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Linux_x86_64.tar.gz"
+      sha256 "e3fa17c003a92271f000a9a3aec253c094381f2fc80026f235918322cb358d53"
 
       def install
         bin.install "wd-go"
@@ -55,9 +55,9 @@ class WdGo < Formula
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.3/wd-go_1.0.3_Linux_armv6.tar.gz"
-      sha256 "0015e96bc10f7e815e20cd56763c288b635b2238f1fb68111823f2b6aa816acb"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Linux_arm64.tar.gz"
+      sha256 "558f5b8c668d7974bcce8cc8e0a70b12702b020ed41455e263cf16ce654cf6c8"
 
       def install
         bin.install "wd-go"
@@ -68,9 +68,10 @@ class WdGo < Formula
     end
   end
 
-  def caveats; <<~EOS
-    For bash or zsh, put something like this in a profile file (like ~/.bash_profile or ~/.zshrc):
-    . #{etc}/profile.d/wd.sh
-  EOS
+  def caveats
+    <<~EOS
+      For bash or zsh, put something like this in a profile file (like ~/.bash_profile or ~/.zshrc):
+      . #{etc}/profile.d/wd.sh
+    EOS
   end
 end
