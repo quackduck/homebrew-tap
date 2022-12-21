@@ -5,12 +5,12 @@
 class WdGo < Formula
   desc "Warp across the filesystem instantly"
   homepage "https://github.com/quackduck/warpdrive-go"
-  version "1.0.4"
+  version "1.0.5"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Darwin_arm64.tar.gz"
-      sha256 "b8e2d28418733f3e8029fe09d14b7cd28ac93520993fda8da77d77f7ab299835"
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.5/wd-go_1.0.5_Darwin_x86_64.tar.gz"
+      sha256 "f7f2e01bb123f17d714a7117e3ba8838a7f1e45ce795d8b1690853ac5a303f18"
 
       def install
         bin.install "wd-go"
@@ -19,9 +19,9 @@ class WdGo < Formula
         (prefix/"etc/profile.d").install "bash-zsh-support/wd.sh"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Darwin_x86_64.tar.gz"
-      sha256 "76c44165065a2408330171d9efc860a631f1a40ad165a10f262be47edde4a6fb"
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.5/wd-go_1.0.5_Darwin_arm64.tar.gz"
+      sha256 "d704b28b5b92c27d7159d432191a31923991e0802039b7cb833eec243d14721a"
 
       def install
         bin.install "wd-go"
@@ -34,8 +34,8 @@ class WdGo < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Linux_armv6.tar.gz"
-      sha256 "e04c276f501f0e9620f0d3796516eef26fba1f79ea3c1c1020210e23efa94ec9"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.5/wd-go_1.0.5_Linux_armv6.tar.gz"
+      sha256 "89870df4a10125fbfc999a8985316cba3595e3322be054af4b4d04249859c458"
 
       def install
         bin.install "wd-go"
@@ -45,8 +45,8 @@ class WdGo < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Linux_x86_64.tar.gz"
-      sha256 "e3fa17c003a92271f000a9a3aec253c094381f2fc80026f235918322cb358d53"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.5/wd-go_1.0.5_Linux_x86_64.tar.gz"
+      sha256 "613dc20622f8f469bda6d1935d542850e533942059c887d2613bd3e904f476c0"
 
       def install
         bin.install "wd-go"
@@ -56,8 +56,8 @@ class WdGo < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.4/wd-go_1.0.4_Linux_arm64.tar.gz"
-      sha256 "558f5b8c668d7974bcce8cc8e0a70b12702b020ed41455e263cf16ce654cf6c8"
+      url "https://github.com/quackduck/warpdrive-go/releases/download/v1.0.5/wd-go_1.0.5_Linux_arm64.tar.gz"
+      sha256 "bbee89b40b16e18feb367f94c0a964ae713fdd851e7494be0abf508303ecce72"
 
       def install
         bin.install "wd-go"
