@@ -5,20 +5,20 @@
 class Rem < Formula
   desc "Rem is a CLI Trash which makes it ridiculously easy to recover them."
   homepage "https://github.com/quackduck/rem"
-  version "3.0.1"
+  version "3.1.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/quackduck/rem/releases/download/v3.0.1/rem_3.0.1_Darwin_arm64.tar.gz"
-      sha256 "9f4eb9e9d126e8945fbe5e7737bafaf902feeb6c16a51849cef5713b9b2d1c6d"
+      url "https://github.com/quackduck/rem/releases/download/v3.1.0/rem_3.1.0_Darwin_arm64.tar.gz"
+      sha256 "04eadb2c4df93e1f6b73d59eca715ef482d78bc88d5403b456c9bc14b513b6cc"
 
       def install
         bin.install "rem"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/rem/releases/download/v3.0.1/rem_3.0.1_Darwin_x86_64.tar.gz"
-      sha256 "c005361076f65df1af0f06216ce0f05e522cc76bf93bd087d6e080b3e257af06"
+      url "https://github.com/quackduck/rem/releases/download/v3.1.0/rem_3.1.0_Darwin_x86_64.tar.gz"
+      sha256 "8286c1ac1db4020e5db55ad888994bbd1eed86d1d92b8b3665b3593875c65acb"
 
       def install
         bin.install "rem"
@@ -28,24 +28,24 @@ class Rem < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/rem/releases/download/v3.0.1/rem_3.0.1_Linux_arm64.tar.gz"
-      sha256 "aa2053903ee7a876c0f8a256f62144fa751ee933d2ed353697b7329e7c1d3392"
+      url "https://github.com/quackduck/rem/releases/download/v3.1.0/rem_3.1.0_Linux_arm64.tar.gz"
+      sha256 "c4385974f41b8917ecf5445ce8d72baab41c38d986dd052d1d783f1ca0b657c7"
 
       def install
         bin.install "rem"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/rem/releases/download/v3.0.1/rem_3.0.1_Linux_x86_64.tar.gz"
-      sha256 "ace6dfebaf4d191db30086e581002bf4a99b04c4d3c8c7a1f4fbe0d8c90ab643"
+      url "https://github.com/quackduck/rem/releases/download/v3.1.0/rem_3.1.0_Linux_x86_64.tar.gz"
+      sha256 "9fd5df53fff1a8192e1086582700d3ef7edd75913fae77a0e60c87e785654cef"
 
       def install
         bin.install "rem"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/rem/releases/download/v3.0.1/rem_3.0.1_Linux_armv6.tar.gz"
-      sha256 "12b6e14b4457ea9523027bc2a7373ac8c1f561131399c905fadc1fc533fc6792"
+      url "https://github.com/quackduck/rem/releases/download/v3.1.0/rem_3.1.0_Linux_armv6.tar.gz"
+      sha256 "6d0f2b78559450c21138b6052fb2b5cfe6b00599387d030b6fb8a445cd57de76"
 
       def install
         bin.install "rem"
