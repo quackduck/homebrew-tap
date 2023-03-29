@@ -5,20 +5,20 @@
 class Uniclip < Formula
   desc "Cross-platform shared clipboard"
   homepage "https://github.com/quackduck/uniclip"
-  version "2.3.5"
+  version "2.3.6"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/uniclip/releases/download/v2.3.5/uniclip_2.3.5_Darwin_x86_64.tar.gz"
-      sha256 "29e4d86da575284f9d6c50c84d4fda7208c995c0d3b5617f23fce0a2d43172ad"
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/uniclip/releases/download/v2.3.6/uniclip_2.3.6_Darwin_arm64.tar.gz"
+      sha256 "a290c13ceb4c4d2c6e150498c2fdceb820e0b6eb50f93e1eb5354c60ead61993"
 
       def install
         bin.install "uniclip"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/quackduck/uniclip/releases/download/v2.3.5/uniclip_2.3.5_Darwin_arm64.tar.gz"
-      sha256 "174d0675453bde402cc51676a6b98690b35f92e85c4c84a9695d30062e95250b"
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/uniclip/releases/download/v2.3.6/uniclip_2.3.6_Darwin_x86_64.tar.gz"
+      sha256 "185cc2fd6b79a12b44b300646226ad9d83803f24a6e4adb3e2a32064380de98f"
 
       def install
         bin.install "uniclip"
@@ -28,24 +28,24 @@ class Uniclip < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/uniclip/releases/download/v2.3.5/uniclip_2.3.5_Linux_armv6.tar.gz"
-      sha256 "73716a0fc3408715f6e71403f93477a136b2fe84f27cb9ac4803a87d2e8c5302"
+      url "https://github.com/quackduck/uniclip/releases/download/v2.3.6/uniclip_2.3.6_Linux_armv6.tar.gz"
+      sha256 "bd335a4cbb31d9575c35b0d947b20325723b443898ad008f2ac9b197e67c453d"
 
       def install
         bin.install "uniclip"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/quackduck/uniclip/releases/download/v2.3.5/uniclip_2.3.5_Linux_x86_64.tar.gz"
-      sha256 "e348b0ad0a61906735f588a268010895036c9ac260ba59a1eb330b1daf610f45"
+      url "https://github.com/quackduck/uniclip/releases/download/v2.3.6/uniclip_2.3.6_Linux_x86_64.tar.gz"
+      sha256 "a713ff99aaf7846b141c8419e3d7a8d63cd73b94f3c239eb1822046f448669c9"
 
       def install
         bin.install "uniclip"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/uniclip/releases/download/v2.3.5/uniclip_2.3.5_Linux_arm64.tar.gz"
-      sha256 "795dd7feb2d8a9a7a786585c0c8b2d6da47ec8a916d62f7f5ca61d2b4fce900a"
+      url "https://github.com/quackduck/uniclip/releases/download/v2.3.6/uniclip_2.3.6_Linux_arm64.tar.gz"
+      sha256 "21ba2964dee16bead327c286fba914ab4b1f5348f4625633bd4ca3943073a76f"
 
       def install
         bin.install "uniclip"
