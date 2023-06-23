@@ -5,12 +5,12 @@
 class Tii < Formula
   desc "Command not found? Install it right there!"
   homepage "https://github.com/quackduck/tii"
-  version "1.1.0"
+  version "2.0.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/tii/releases/download/v1.1.0/tii_1.1.0_Darwin_x86_64.tar.gz"
-      sha256 "5569a7f88f762b596f48f0a5a2e4220b87377672095c7845167dba1527c57a03"
+    if Hardware::CPU.arm?
+      url "https://github.com/quackduck/tii/releases/download/v2.0.0/tii_2.0.0_Darwin_arm64.tar.gz"
+      sha256 "93bd5cbb81ab8c6a64a8177024049d40736599862a7e516669c5a95850b212b8"
 
       def install
         bin.install "tii"
@@ -18,9 +18,9 @@ class Tii < Formula
         (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/quackduck/tii/releases/download/v1.1.0/tii_1.1.0_Darwin_arm64.tar.gz"
-      sha256 "e77a27e99714da3ad0302dcf2923ea98d110dc98126a7d7f47971bb553160463"
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/tii/releases/download/v2.0.0/tii_2.0.0_Darwin_x86_64.tar.gz"
+      sha256 "08d133bb24f94ce2d6e18b22e3bfa35e413cab89cf28236af1d6f1a251985f9a"
 
       def install
         bin.install "tii"
@@ -31,9 +31,19 @@ class Tii < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/quackduck/tii/releases/download/v2.0.0/tii_2.0.0_Linux_x86_64.tar.gz"
+      sha256 "246cd9bd8ecea419dfe37d9130a1c4238721a6ab3df59a7938a8a20cd62dc14f"
+
+      def install
+        bin.install "tii"
+        fish_function.install "shell/__fish_command_not_found_handler.fish"
+        (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
+      end
+    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/tii/releases/download/v1.1.0/tii_1.1.0_Linux_armv6.tar.gz"
-      sha256 "93e2797ecf5d19d8a7435779a2e7ab9eb14389ea2e66f9b880aed556703902ef"
+      url "https://github.com/quackduck/tii/releases/download/v2.0.0/tii_2.0.0_Linux_armv6.tar.gz"
+      sha256 "56c0ad4b6a87895a1fced843eb702f99741bc8227b28b04a7f7dbc915f94e4db"
 
       def install
         bin.install "tii"
@@ -42,18 +52,8 @@ class Tii < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/quackduck/tii/releases/download/v1.1.0/tii_1.1.0_Linux_arm64.tar.gz"
-      sha256 "9bf9635771a084f474688709440960a2c8484ed464fea74b1256f1b6a8752175"
-
-      def install
-        bin.install "tii"
-        fish_function.install "shell/__fish_command_not_found_handler.fish"
-        (prefix/"etc/profile.d").install "shell/tii_on_command_not_found.sh"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/quackduck/tii/releases/download/v1.1.0/tii_1.1.0_Linux_x86_64.tar.gz"
-      sha256 "67282bbbb726a9a07286a36043354fb0608aa74aa7d6ea3963d4e53e99d25497"
+      url "https://github.com/quackduck/tii/releases/download/v2.0.0/tii_2.0.0_Linux_arm64.tar.gz"
+      sha256 "b0be660506b54a6276495fba4f9173c8e10ed422ceaed947d8fe29beb9cc6a49"
 
       def install
         bin.install "tii"
@@ -63,9 +63,10 @@ class Tii < Formula
     end
   end
 
-  def caveats; <<~EOS
-    For bash or zsh, put something like this in a profile file (like ~/.bash_profile or ~/.zshrc):
-    . #{etc}/profile.d/tii_on_command_not_found.sh
-  EOS
+  def caveats
+    <<~EOS
+      For bash or zsh, put something like this in a profile file (like ~/.bash_profile or ~/.zshrc):
+      . #{etc}/profile.d/tii_on_command_not_found.sh
+    EOS
   end
 end
