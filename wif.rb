@@ -1,8 +1,8 @@
 class Wif < Formula
   desc "WiFi packet sniffer"
   homepage "https://github.com/quackduck/wif"
-  url "https://github.com/quackduck/wif/releases/download/v0.1.2/release.tar.gz"
-  sha256 "3d3a4251c3a8c06ebc3da17a9b132072e5f827e872afee9f38fafc89bd7a699c"
+  url "https://github.com/quackduck/wif/releases/download/v1.0.0/release.tar.gz"
+  sha256 "c35003a609c969f390d0897e61b65d297c6e3cd6e96965ebc317257464c480a4"
   license "Unlicense"
 
   depends_on "libpcap" unless OS.mac?
